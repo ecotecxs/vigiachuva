@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo"><img src="" alt=""></div>
+        <h1>LOGIN</h1>
+        <div class="login">
+            <form method="post" action="logon.php" id="formulario">
+                <label for="">NOME DE USUÁRIO</label>
+                <input type="text" class="inputs" name="nome" placeholder="Digite seu nome de usuário" required>
+                <label for="">SENHA</label>
+                <input type="password" id="password" class="inputs" name="senha" placeholder="Digite sua senha" required>
+                <input type="checkbox" id="showPassword" onclick="togglePassword()"> Mostrar senha
+
+                <button type="submit">Entrar</button>
+                <p>Ainda não tem uma conta? <a href="cadastro.html">Criar conta</a></p>
+                <a href="esqueceu_senha.html">Esqueceu senha?</a>
+            </form>
+            <script>
+                function togglePassword() {
+                  const passwordField = document.getElementById('password');
+                  const showPassword = document.getElementById('showPassword');
+              
+                  // Verifica se o checkbox está marcado
+                  if (showPassword.checked) {
+                    passwordField.type = 'text'; // Exibir a senha
+                  } else {
+                    passwordField.type = 'password'; // Ocultar a senha
+                  }
+                }
+              </script>
+        </div>
+
+    </div>
+</body>
+</html>

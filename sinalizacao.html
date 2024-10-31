@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinalizar Alagamento</title>
+    <link rel="stylesheet" href="sinalizacao.css">
+</head>
+<body>
+
+    <main class="container">
+        <h2>SINALIZAR ALAGAMENTO</h2>
+        <form class="formulario" action="insert.php" method="POST">
+            <div class="campo">
+                <h2 id="endereco">ENDEREÇO DA OCORRÊNCIA</h2>
+                <input type="text" id="endereco" name="endereco" placeholder="Digite o endereço">
+            </div>
+            <div class="campo">
+                <h2>GRAU DO ALAGAMENTO</h2>
+                <div class="opcoes">
+                    <label class="leve"><input type="radio" name="grau" value="leve" required> Leve</label>
+                    <label class="medio"><input type="radio" name="grau" value="medio"> Moderado</label>
+                    <label class="grave"><input type="radio" name="grau" value="grave"> Grave</label>
+                </div>
+            </div>
+            <div class="campo">
+                <h2 id="comentario">ADICIONAR COMENTÁRIO</h2>
+                <textarea id="comentario" name="comentario" placeholder="Digite seu comentário aqui"></textarea>
+            </div>
+
+            <!-- Campos ocultos para latitude e longitude -->
+            <input type="hidden" id="latitude" name="latitude">
+            <input type="hidden" id="longitude" name="longitude">
+
+            <button type="submit" class="botao-enviar">ENVIAR</button>
+        </form>
+    </main>
+
+
+    <script>
+   document.addEventListener("DOMContentLoaded", function() {
+    // Função para capturar parâmetros da URL
+    function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            lat: params.get('lat'),
+            lon: params.get('lon')
+        };
+    }
+
+    // Preenche os campos ocultos de latitude e longitude
+    const { lat, lon } = getQueryParams();
+    
+    if (lat && lon) {
+        document.getElementById('latitude').value = lat;
+        document.getElementById('longitude').value = lon;
+    } else {
+        alert('Erro: Latitude e longitude não foram fornecidas.');
+    }
+});
+
+
+    </script>
+</body>
+</html>

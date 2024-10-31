@@ -59,6 +59,7 @@
 </head>
 
 <body>
+  
 
     <header>
         <nav class="navbar">
@@ -72,37 +73,42 @@
         </nav>
     </header>
 
-    <?php
-    // Conexão com o banco de dados (usando MySQLi como exemplo)
-    include 'conexao.php';
+<?php
+session_start();  // Inicia a sessão
 
-    // Verificar conexão
-    if ($conexao->connect_error) {
-        die("Falha na conexão: " . $conexao->connect_error);
-    }
+// Verifica se o usuário está logado
+if (!isset($_SESSION['user_id'])) {
+    // Redireciona para a página de login se o usuário não estiver logado
+    header('Location: login.php');
+    exit;
+}
 
-    // Supomos que o ID do usuário esteja disponível via sessão ou URL
-    $userId = 2; // Exemplo de ID do usuário
+// Conexão com o banco de dados
+include 'conexao.php';
 
-    $sql = "SELECT email, nm_user, senha FROM tb_user WHERE id_user = ?";
-    $stmt = $conexao->prepare($sql);
+// Recupera o ID do usuário da sessão
+$userId = $_SESSION['user_id'];
 
-    if ($stmt === false) {
-        die("Erro ao preparar a consulta: " . $conexao->error);
-    }
+// Consulta para obter os dados do usuário logado
+$sql = "SELECT email, nm_user, senha FROM tb_user WHERE id_user = ?";
+$stmt = $conexao->prepare($sql);
 
-    $stmt->bind_param('i', $userId);
-    $stmt->execute();
-    $stmt->bind_result($email, $nm_user, $senha);
-    $stmt->fetch();
-    $stmt->close();
-    $conexao->close();
-    ?>
+if ($stmt === false) {
+    die("Erro ao preparar a consulta: " . $conexao->error);
+}
+
+$stmt->bind_param('i', $userId);
+$stmt->execute();
+$stmt->bind_result($email, $nm_user, $senha);
+$stmt->fetch();
+$stmt->close();
+$conexao->close();
+?>
 
     <nav class="menu-inferior">
-        <a href="user.html"> <img src="img/do-utilizador.png" alt="Ícone 1"></a>
+        <a href="user.php"> <img src="img/do-utilizador.png" alt="Ícone 1"></a>
         <a href="galeria.html"><img src="img/galeria.png" alt="Ícone 2"></a>
-        <a href="mapa.html"> <img src="img/localizacao.png" alt="Ícone 3"></a>
+        <a href="mapakley.php"> <img src="img/localizacao.png" alt="Ícone 3"></a>
         <a href="comentario.html"> <img src="img/conversacao.png" alt="Ícone 4"></a>
     </nav>
 
@@ -125,7 +131,7 @@
             </div>
             <div class="user-info">
                 <div class="titulos"><label>SENHAS</label></div>
-                <div class="borda"><span><?php echo htmlspecialchars($senha); ?></span> </div><!-- Exibindo apenas asteriscos por segurança -->
+                <div class="borda"><span>*****</span> </div><!-- Exibindo apenas asteriscos por segurança -->
             </div>
         </div>
     </div>

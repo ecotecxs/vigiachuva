@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mapa.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="home.html"><img src="img/logo.png" alt="logo"></a>
+            <h1>Vigia Chuva</h1>
+        </div>
+
+        <div class="nav-right">
+            <a href="notificacao.html"><img src="img/packard-bell.png" alt="Ícone 1"></a>
+        </div>
+    </nav>
+
+    <div class="botao-container">
+        <button class="botao">Tela Cheia</button>
+        <a href="mapakley.html"><button class="botao">Sinalizar</button></a>
+        <button class="botao">Mongaguá</button>
+    </div>
+
+    <div class="mapa">
+        <!-- Aqui o conteúdo de mapa.php será carregado dinamicamente -->
+        <div class="mapa">
+            <iframe src="mapa.php" style="height: 65vh; width: 50vh; border: none;"></iframe>
+        </div>
+    </div>
+    
+    <nav class="menu-inferior">
+        <a href="user.php"> <img src="img/do-utilizador.png" alt="Ícone 1"></a>
+        <a href="galeria.html"><img src="img/galeria.png" alt="Ícone 2"></a>
+        <a href="mapa.html"> <img src="img/localizacao.png" alt="Ícone 3"></a>
+        <a href="comunidade.php"> <img src="img/conversacao.png" alt="Ícone 4"></a>
+    </nav>
+
+    <script>
+        fetch('mapa.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('map-container').innerHTML = data;
+            })
+            .catch(error => console.error('Erro ao carregar mapa.php:', error));
+    </script>
+</body>
+</html>

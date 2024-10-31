@@ -17,9 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param('si', $newUsername, $userId);
     
     if ($stmt->execute()) {
-        echo "Nome de usuário atualizado com sucesso!";
+        echo "<script>alert('Nome de usuário atualizado com sucesso'); history.back();</script>";
     } else {
-        echo "Erro ao atualizar o nome de usuário.";
+        echo "<script>alert('Erro ao atualizar nome de usuário'); history.back();</script>";
     }
 
     $stmt->close();

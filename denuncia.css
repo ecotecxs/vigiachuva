@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    
+    background-color: #0A2E3F;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+    height: 100vh;
+    margin: 0;
+}
+
+.navbar {
+    width: 100%;
+    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+}
+.texto-nav {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.nav-left {
+    position: relative;
+    display: flex;  
+}
+
+.nav-left h1 {
+    font-family:'Times New Roman', Times, serif ;
+}
+.nav-left img {
+    width: 30px; 
+    
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.container {
+    font-family: 'Arial', sans-serif;
+}
+
+.container h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    padding-top: 50px;
+}
+
+
+.form-container p {
+    font-size: 1em;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.report-button {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #648695;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.report-button:hover {
+    background-color: #537684;
+}
+
+.submit-container {
+    margin-top: 30px;
+}
+
+.submit-button {
+    width: 80%;
+    max-width: 250px;
+    padding: 15px;
+    background: linear-gradient(135deg, #97A3B0, #48526C);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: linear-gradient(135deg, #48526C, #97A3B0);
+}
+
+footer {
+    padding: 10px;
+}
+
+footer p {
+    color: white;
+    font-size: 1em;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.menu-inferior {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+  }
+  .menu-inferior img {
+    width: 40px;
+  }
+  .menu-inferior a {
+    
+    text-decoration: none;
+  }
+

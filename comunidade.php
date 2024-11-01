@@ -65,8 +65,8 @@ $result = $conexao->query($query);
     <nav class="menu-inferior">
         <a href="user.php"><img src="img/do-utilizador.png" alt="Ícone 1"></a>
         <a href="galeria.html"><img src="img/galeria.png" alt="Ícone 2"></a>
-        <a href="mapakley.php"><img src="img/localizacao.png" alt="Ícone 3"></a>
-        <a href="comentario.html"><img src="img/conversacao.png" alt="Ícone 4"></a>
+        <a href="mapa.html"><img src="img/localizacao.png" alt="Ícone 3"></a>
+        <a href="comunidade.php"><img src="img/conversacao.png" alt="Ícone 4"></a>
     </nav>
 </body>
 

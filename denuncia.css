@@ -23,7 +23,6 @@ body {
     align-items: center;
     display: flex;
     position: relative;
-    font-family: 'Times New Roman', Times, serif;
 }
 .texto-nav {
     cursor: pointer;

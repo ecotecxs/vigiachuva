@@ -1,26 +1,29 @@
 <?php
-
 $nome = $_POST['nome'];
 $email = $_POST['email'];
-$data = $_POST['data'];
+$data = $_POST['data']; 
 $senha = $_POST['senha'];
 
 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
 include 'conexao.php';
 
-$insert = "INSERT INTO tb_user (id_user, nm_user, email, senha) VALUES (NULL, ?, ?, ?)";
-
+$insert = "INSERT INTO tb_user (id_user, nm_user, email, senha, dt_nascimento) VALUES (NULL, ?, ?, ?, ?)";
 $stmt = $conexao->prepare($insert);
-$stmt->bind_param('sss', $nome, $email, $senha_hash,);
+
+if (!$stmt) {
+    die("Erro na preparação do SQL: " . $conexao->error);
+}
+
+$stmt->bind_param('ssss', $nome, $email, $senha_hash, $data);
 
 if ($stmt->execute()) {
-    header('location: login.html');
+    header('Location: login.html');
+    exit();
 } else {
-    echo "<script>alert('Erro ao cadastrar usuário'); history.back();</script>";
+    echo "<script>alert('Erro ao cadastrar usuário: {$stmt->error}'); history.back();</script>";
 }
 
 $stmt->close();
 $conexao->close();
-
 ?>

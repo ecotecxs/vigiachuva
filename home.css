@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 
@@ -30,9 +30,7 @@ body {
     display: flex;  
 }
 
-.nav-left h1 {
-    font-family:'Times New Roman', Times, serif ;
-}
+
 .nav-left img {
     width: 30px; 
     

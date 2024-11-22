@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -15,28 +18,29 @@
                 <label for="">NOME DE USUÁRIO</label>
                 <input type="text" class="inputs" name="nome" placeholder="Digite seu nome de usuário" required>
                 <label for="">SENHA</label>
+                <div class="senha">
                 <input type="password" id="password" class="inputs" name="senha" placeholder="Digite sua senha" required>
-                <input type="checkbox" id="showPassword" onclick="togglePassword()"> Mostrar senha
+                <img id="toggleIcon" src="img/ocultar.png" alt="Mostrar senha" onclick="togglePassword()">
+                </div>
 
                 <button type="submit">Entrar</button>
                 <p>Ainda não tem uma conta? <a href="cadastro.html">Criar conta</a></p>
                 <a href="esqueceu_senha.html">Esqueceu senha?</a>
             </form>
             <script>
-                function togglePassword() {
-                  const passwordField = document.getElementById('password');
-                  const showPassword = document.getElementById('showPassword');
-              
-                  // Verifica se o checkbox está marcado
-                  if (showPassword.checked) {
-                    passwordField.type = 'text'; // Exibir a senha
-                  } else {
-                    passwordField.type = 'password'; // Ocultar a senha
-                  }
-                }
-              </script>
+              function togglePassword() {
+                 const passwordField = document.getElementById('password');
+                 const showPassword = document.getElementById('showPassword');
+                 
+                 
+                 if (passwordField.type === 'password') {
+                     passwordField.type = 'text'; 
+                 } else {
+                     passwordField.type = 'password'; 
+                 }
+             } 
+           </script>
         </div>
-
     </div>
 </body>
 </html>

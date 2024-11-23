@@ -62,6 +62,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "Erro ao enviar comentário: " . $stmt_comentario->error;
             }
         }
+
+        // Atualizar os pontos do usuário (10 pontos por sinalização)
+        $sql_pontos = "INSERT INTO tb_pontos (nome_usuario, pontos) VALUES (?, 10) ON DUPLICATE KEY UPDATE pontos = pontos + 10";
+        $stmt_pontos = $conexao->prepare($sql_pontos);
+
+        if (!$stmt_pontos) {
+            die("Erro na preparação da consulta de pontos: " . $conexao->error);
+        }
+
+        $stmt_pontos->bind_param("s", $nome_usuario);
+
+        if ($stmt_pontos->execute()) {
+            // Pontos atualizados com sucesso
+            echo "Pontos atualizados!";
+        } else {
+            echo "Erro ao atualizar pontos: " . $stmt_pontos->error;
+        }
+
+        $stmt_pontos->close();
     } else {
         echo "Erro ao enviar sinalização: " . $stmt_sinalizacao->error;
     }
@@ -85,3 +104,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 $conexao->close();
+?>

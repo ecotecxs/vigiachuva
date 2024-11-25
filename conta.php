@@ -71,7 +71,7 @@
                 <h1>Vigia Chuva</h1>
             </div>
             <div class="nav-right">
-                <a href="notificacao.html"><img src="img/packard-bell.png" alt="Ícone 1"></a>
+                <a href="notificacao.php"><img src="img/packard-bell.png" alt="Ícone 1"></a>
             </div>
         </nav>
     </header>
@@ -115,25 +115,23 @@ $conexao->close();
         <a href="comunidade.php"> <img src="img/conversacao.png" alt="Ícone 4"></a>
     </nav>
 
+    <h1 class="dados">DADOS PESSOAIS</h1>
 
     <div id="center">
         <div id="infoconta">
-            <div id="ti">
-                <h1 id="titulo">DADOS PESSOAIS</h1>
-            </div>
             <div class="user-info">
-                <div class="titulos"><label>EMAIL</label></div>
+                <div class="titulos"><label>Email</label></div>
                 <div class="borda"><span><?php echo htmlspecialchars($email); ?></span></div>
             </div>
             <div class="user-info">
-                <div class="titulos"><label>NOME DO USUARIO</label></div>
+                <div class="titulos"><label>Nome do Usuário</label></div>
                 <div class="borda">
                     <span><?php echo htmlspecialchars($nm_user); ?></span>
                     <i class="fas fa-pencil-alt edit-icon" id="edit-username"></i>
                 </div>
             </div>
             <div class="user-info">
-                <div class="titulos"><label>SENHA</label></div>
+                <div class="titulos"><label>Senha</label></div>
                 <div class="borda"><span>*****</span> </div><!-- Exibindo apenas asteriscos por segurança -->
             </div>
         </div>
